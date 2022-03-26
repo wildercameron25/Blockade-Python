@@ -1,4 +1,4 @@
-import variables
+import variable
 import players
 import time
 import pygame   
