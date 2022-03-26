@@ -3,7 +3,7 @@ import players
 import time
 import pygame   
 
-player1 = players.Player1(
+player1 = players.Player1()
 player2 = players.Player2()
 var = variables.Variables()
 
