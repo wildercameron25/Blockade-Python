@@ -274,6 +274,7 @@ def introScreen(display):
                 if pos[0] > var.DISPLAYWIDTH * 0.3125 and pos[0] < var.DISPLAYWIDTH * 0.6425 and pos[1] > var.DISPLAYHEIGHT * 0.75 and pos[1] < var.DISPLAYHEIGHT * 0.84:
                     display.fill(var.black)
                     pygame.display.update()
+                    #updates player positions in accordance to map size
                     player1.initXPos = var.DISPLAYWIDTH * 0.0625
                     player1.initYPos = var.DISPLAYHEIGHT * (1/12)
                     player1.xPos = player1.initXPos
