@@ -30,6 +30,8 @@ while not game.var.gameDone:
     game.registerMovement()
 
     game.displayMovement(dis, clock)
+
+    game.checkScore(dis)
 #exits the program safely
 pygame.quit()
 sys.exit(0)
