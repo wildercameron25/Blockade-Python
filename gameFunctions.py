@@ -8,7 +8,7 @@ player2 = players.Player2()
 var = variables.Variables()
 
 #displays a string on display
-def message(display, msg, color, xLoc, yLoc, size=50):
+def message(display, msg, color, xLoc, yLoc, size):
     fontStyle = pygame.font.SysFont(None, size)
     mesg = fontStyle.render(msg, True, color)
     display.blit(mesg, [xLoc, yLoc])
@@ -18,7 +18,7 @@ def waitReadyState(display):
         display.fill(var.black)
         pygame.draw.rect(display, player1.color, [player1.xPos, player1.yPos, player1.size, player1.size])
         pygame.draw.rect(display, player2.color, [player2.xPos, player2.yPos, player2.size, player2.size])
-        message(display, "Input Direction to Begin", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, 30)
+        message(display, "Input to Begin", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
         pygame.display.update()
 
         for event in pygame.event.get():
@@ -66,22 +66,22 @@ def waitReadyState(display):
             display.fill(var.black)
             pygame.draw.rect(display, player1.color, [player1.xPos, player1.yPos, player1.size, player1.size])
             pygame.draw.rect(display, player2.color, [player2.xPos, player2.yPos, player2.size, player2.size])
-            message(display, "Start in:", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, 30)
-            message(display, "3", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 + 50, 30)
+            message(display, "Start in:", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+            message(display, "3", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 + 50, var.fontSize)
             pygame.display.update()
             time.sleep(1)
             display.fill(var.black)
             pygame.draw.rect(display, player1.color, [player1.xPos, player1.yPos, player1.size, player1.size])
             pygame.draw.rect(display, player2.color, [player2.xPos, player2.yPos, player2.size, player2.size])
-            message(display, "Start in:", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, 30)
-            message(display, "2", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 + 50, 30)
+            message(display, "Start in:", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+            message(display, "2", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 + 50, var.fontSize)
             pygame.display.update()
             time.sleep(1)
             display.fill(var.black)
             pygame.draw.rect(display, player1.color, [player1.xPos, player1.yPos, player1.size, player1.size])
             pygame.draw.rect(display, player2.color, [player2.xPos, player2.yPos, player2.size, player2.size])
-            message(display, "Start in:", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, 30)
-            message(display, "1", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 + 50, 30)
+            message(display, "Start in:", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+            message(display, "1", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 + 50, var.fontSize)
             pygame.display.update()
             time.sleep(1)
             var.player2Ready = False
@@ -125,14 +125,14 @@ def checkPlayerPosition(display):
     #checks if player2 hit edge
     if player2.xPos >= var.DISPLAYWIDTH or player2.xPos <= 0 or player2.yPos >= var.DISPLAYHEIGHT or player2.yPos <= 0:
         var.roundOver = True
-        message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2)
+        message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
         pygame.display.update()
         player1.score += 1
         time.sleep(2)
     #checks if player1 hit edge
     if player1.xPos >= var.DISPLAYWIDTH or player1.xPos <= 0 or player1.yPos >= var.DISPLAYHEIGHT or player1.yPos <= 0:
         var.roundOver = True
-        message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2)
+        message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
         pygame.display.update()
         player2.score += 1
         time.sleep(2)
@@ -140,7 +140,7 @@ def checkPlayerPosition(display):
     for x, y in zip(player1.xHistory, player1.yHistory):
         if player2.xPos == x and player2.yPos == y:
             var.roundOver = True
-            message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2)
+            message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
             pygame.display.update()
             player1.score += 1
             time.sleep(2)
@@ -148,7 +148,7 @@ def checkPlayerPosition(display):
     for x, y in zip(player2.xHistory, player2.yHistory):
         if player1.xPos == x and player1.yPos == y:
             var.roundOver = True
-            message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2)
+            message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
             pygame.display.update()
             player2.score += 1
             time.sleep(2)
@@ -157,7 +157,7 @@ def checkPlayerPosition(display):
         if i > 0:
             if player1.xPos == player1.xHistory[i-1] and player1.yPos == player1.yHistory[i-1]:
                 var.roundOver = True
-                message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2)
+                message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
                 pygame.display.update()
                 player2.score += 1
                 time.sleep(2)
@@ -166,7 +166,7 @@ def checkPlayerPosition(display):
         if i > 0:
             if player2.xPos == player2.xHistory[i-1] and player2.yPos == player2.yHistory[i-1]:
                 var.roundOver = True
-                message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2)
+                message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
                 pygame.display.update()
                 player1.score += 1
                 time.sleep(2)
@@ -180,7 +180,7 @@ def checkRoundState(display):
         player1.reset()
         #updates score
         var.score = str(player1.score) + " vs " + str(player2.score)
-        message(display, var.score, var.white, var.DISPLAYWIDTH*0.375, var.DISPLAYHEIGHT/2)
+        message(display, var.score, var.white, var.DISPLAYWIDTH*0.375, var.DISPLAYHEIGHT/2, var.fontSize)
         pygame.display.update()
         time.sleep(2)
         var.roundOver = False
@@ -202,68 +202,75 @@ def displayMovement(display, clock, speed = 20):
     pygame.display.update()
     #controls player speed
     clock.tick(speed)
-
-
+#displays contents of intro screen
+#allows for players to view instructions(WIP), change color(WIP), and change window size
 def introScreen(display):
-    message(display, "Select Screen Size", (255, 255, 255), display.get_width() * 0.1, display.get_height() * (1/30), var.fontSize)
-    message(display, "Small", (255, 255, 255), display.get_width() * 0.125, display.get_height() * (7/30), var.fontSize)
-    message(display, "Medium", (255, 255, 255), display.get_width() * 0.5, display.get_height() * (7/30), var.fontSize)
-    message(display, "Large", (255, 255, 255), display.get_width() * 0.125, display.get_height() * 0.5, var.fontSize)
-    message(display, "Instructions", (255, 255, 255), display.get_width() * 0.45, display.get_height() * 0.5, var.fontSize)
-    message(display, "Confirm", (255, 255, 255), display.get_width() * 0.3125, display.get_height() * 0.75, var.fontSize)
+    message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
+    message(display, "Small", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * (7/30), var.fontSize)
+    message(display, "Medium", (255, 255, 255), var.DISPLAYWIDTH * 0.5, var.DISPLAYHEIGHT * (7/30), var.fontSize)
+    message(display, "Large", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * 0.5, var.fontSize)
+    message(display, "Instructions", (255, 255, 255), var.DISPLAYWIDTH * 0.45, var.DISPLAYHEIGHT * 0.5, var.fontSize)
+    message(display, "Confirm", (255, 255, 255), var.DISPLAYWIDTH * 0.3125, var.DISPLAYHEIGHT * 0.75, var.fontSize)
     pygame.display.update()
     while var.introScreen:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 var.gameDone = False
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            elif event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 #checks if 'Small' was clicked
-                if pos[0] > display.get_width() * 0.125 and pos[0] < display.get_width() * 0.3625 and pos[1] > display.get_height() * (7/30) and pos[1] < display.get_height() * 0.32:
+                if pos[0] > var.DISPLAYWIDTH * 0.125 and pos[0] < var.DISPLAYWIDTH * 0.3625 and pos[1] > var.DISPLAYHEIGHT * (7/30) and pos[1] < var.DISPLAYHEIGHT * 0.32:
                     var.fontSize = 50
-                    display = pygame.display.set_mode((400, 300))
+                    var.DISPLAYHEIGHT = 300
+                    var.DISPLAYWIDTH = 400
+                    display = pygame.display.set_mode((var.DISPLAYWIDTH, var.DISPLAYHEIGHT))
                     display.fill(var.black)
-                    message(display, "Select Screen Size", (255, 255, 255), display.get_width() * 0.1, display.get_height() * (1/30), var.fontSize)
-                    message(display, "Small", (255, 255, 255), display.get_width() * 0.125, display.get_height() * (7/30), var.fontSize)
-                    message(display, "Medium", (255, 255, 255), display.get_width() * 0.5, display.get_height() * (7/30), var.fontSize)
-                    message(display, "Large", (255, 255, 255), display.get_width() * 0.125, display.get_height() * 0.5, var.fontSize)
-                    message(display, "Instructions", (255, 255, 255), display.get_width() * 0.45, display.get_height() * 0.5, var.fontSize)
-                    message(display, "Confirm", (255, 255, 255), display.get_width() * 0.3125, display.get_height() * 0.75, var.fontSize)
+                    message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
+                    message(display, "Small", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * (7/30), var.fontSize)
+                    message(display, "Medium", (255, 255, 255), var.DISPLAYWIDTH * 0.5, var.DISPLAYHEIGHT * (7/30), var.fontSize)
+                    message(display, "Large", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * 0.5, var.fontSize)
+                    message(display, "Instructions", (255, 255, 255), var.DISPLAYWIDTH * 0.45, var.DISPLAYHEIGHT * 0.5, var.fontSize)
+                    message(display, "Confirm", (255, 255, 255), var.DISPLAYWIDTH * 0.3125, var.DISPLAYHEIGHT * 0.75, var.fontSize)
                     pygame.display.update()
                     time.sleep(0.2)
                 #checks if 'Medium' was clicked
-                if pos[0] > display.get_width() * 0.5 and pos[0] < display.get_width() * 0.825 and pos[1] > display.get_height() * (7/30) and pos[1] < display.get_height() * 0.32:
+                if pos[0] > var.DISPLAYWIDTH * 0.5 and pos[0] < var.DISPLAYWIDTH * 0.825 and pos[1] > var.DISPLAYHEIGHT * (7/30) and pos[1] < var.DISPLAYHEIGHT * 0.32:
                     var.fontSize = 100
-                    display = pygame.display.set_mode((800, 600))
+                    var.DISPLAYHEIGHT = 600
+                    var.DISPLAYWIDTH = 800
+                    display = pygame.display.set_mode((var.DISPLAYWIDTH, 600))
                     display.fill(var.black)
-                    message(display, "Select Screen Size", (255, 255, 255), display.get_width() * 0.1, display.get_height() * (1/30), var.fontSize)
-                    message(display, "Small", (255, 255, 255), display.get_width() * 0.125, display.get_height() * (7/30), var.fontSize)
-                    message(display, "Medium", (255, 255, 255), display.get_width() * 0.5, display.get_height() * (7/30), var.fontSize)
-                    message(display, "Large", (255, 255, 255), display.get_width() * 0.125, display.get_height() * 0.5, var.fontSize)
-                    message(display, "Instructions", (255, 255, 255), display.get_width() * 0.45, display.get_height() * 0.5, var.fontSize)
-                    message(display, "Confirm", (255, 255, 255), display.get_width() * 0.3125, display.get_height() * 0.75, var.fontSize)
+                    message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
+                    message(display, "Small", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * (7/30), var.fontSize)
+                    message(display, "Medium", (255, 255, 255), var.DISPLAYWIDTH * 0.5, var.DISPLAYHEIGHT * (7/30), var.fontSize)
+                    message(display, "Large", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * 0.5, var.fontSize)
+                    message(display, "Instructions", (255, 255, 255), var.DISPLAYWIDTH * 0.45, var.DISPLAYHEIGHT * 0.5, var.fontSize)
+                    message(display, "Confirm", (255, 255, 255), var.DISPLAYWIDTH * 0.3125, var.DISPLAYHEIGHT * 0.75, var.fontSize)
                     pygame.display.update()
                     time.sleep(0.2)
                 #checks if 'Large' was clicked
-                if pos[0] > display.get_width() * 0.125 and pos[0] < display.get_width() * 0.355 and pos[1] > display.get_height() * 0.5 and pos[1] < (display.get_height() * (181/300)):
+                if pos[0] > var.DISPLAYWIDTH * 0.125 and pos[0] < var.DISPLAYWIDTH * 0.355 and pos[1] > var.DISPLAYHEIGHT * 0.5 and pos[1] < var.DISPLAYHEIGHT * (181/300):
                     var.fontSize = 125
+                    var.DISPLAYHEIGHT = 750
+                    var.DISPLAYWIDTH = 1000
                     display = pygame.display.set_mode((1000, 750))
                     display.fill(var.black)
-                    message(display, "Select Screen Size", (255, 255, 255), display.get_width() * 0.1, display.get_height() * (1/30), var.fontSize)
-                    message(display, "Small", (255, 255, 255), display.get_width() * 0.125, display.get_height() * (7/30), var.fontSize)
-                    message(display, "Medium", (255, 255, 255), display.get_width() * 0.5, display.get_height() * (7/30), var.fontSize)
-                    message(display, "Large", (255, 255, 255), display.get_width() * 0.125, display.get_height() * 0.5, var.fontSize)
-                    message(display, "Instructions", (255, 255, 255), display.get_width() * 0.45, display.get_height() * 0.5, var.fontSize)
-                    message(display, "Confirm", (255, 255, 255), display.get_width() * 0.3125, display.get_height() * 0.75, var.fontSize)
+                    message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
+                    message(display, "Small", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * (7/30), var.fontSize)
+                    message(display, "Medium", (255, 255, 255), var.DISPLAYWIDTH * 0.5, var.DISPLAYHEIGHT * (7/30), var.fontSize)
+                    message(display, "Large", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * 0.5, var.fontSize)
+                    message(display, "Instructions", (255, 255, 255), var.DISPLAYWIDTH * 0.45, var.DISPLAYHEIGHT * 0.5, var.fontSize)
+                    message(display, "Confirm", (255, 255, 255), var.DISPLAYWIDTH * 0.3125, var.DISPLAYHEIGHT * 0.75, var.fontSize)
                     pygame.display.update()
                     time.sleep(0.2)
                 #checks if 'Instructions' was clicked
-                if pos[0] > display.get_width() * 0.45 and pos[0] < display.get_width() * 0.9625 and pos[1] > display.get_height() * 0.5 and pos[1] < display.get_height() * (44/75):
+                if pos[0] > var.DISPLAYWIDTH * 0.45 and pos[0] < var.DISPLAYWIDTH * 0.9625 and pos[1] > var.DISPLAYHEIGHT * 0.5 and pos[1] < var.DISPLAYHEIGHT * (44/75):
                     display.fill(var.black)
+                    pass
                     pygame.display.update()
                     time.sleep(0.2)
                 #checks if 'Confirm' was clicked
-                if pos[0] > display.get_width() * 0.3125 and pos[0] < display.get_width() * 0.6425 and pos[1] > display.get_height() * 0.75 and pos[1] < display.get_height() * 0.84:
+                if pos[0] > var.DISPLAYWIDTH * 0.3125 and pos[0] < var.DISPLAYWIDTH * 0.6425 and pos[1] > var.DISPLAYHEIGHT * 0.75 and pos[1] < var.DISPLAYHEIGHT * 0.84:
                     display.fill(var.black)
                     pygame.display.update()
                     var.introScreen = False
