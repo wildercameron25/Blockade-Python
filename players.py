@@ -56,11 +56,6 @@ class Player2():
 
     def __init__(self, var, color = (255, 0, 0), map = 1):
         self.color = color
-        if map == var.MAP:
-            self.xPos = var.DISPLAYWIDTH * 0.9125
-            self.yPos = var.DISPLAYHEIGHT * (53/60)
-            self.initXPos = var.DISPLAYWIDTH * 0.9125
-            self.initYPos = var.DISPLAYHEIGHT * (53/60)
 
     def move(self):
         self.xPos += self.xChange
