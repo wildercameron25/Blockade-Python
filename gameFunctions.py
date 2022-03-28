@@ -19,7 +19,7 @@ def waitReadyState(display):
         display.fill(var.black)
         pygame.draw.rect(display, player1.color, [player1.xPos, player1.yPos, player1.size, player1.size])
         pygame.draw.rect(display, player2.color, [player2.xPos, player2.yPos, player2.size, player2.size])
-        message(display, "Input to Begin", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+        message(display, "Input to Begin", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
         pygame.display.update()
 
         for event in pygame.event.get():
@@ -67,22 +67,22 @@ def waitReadyState(display):
             display.fill(var.black)
             pygame.draw.rect(display, player1.color, [player1.xPos, player1.yPos, player1.size, player1.size])
             pygame.draw.rect(display, player2.color, [player2.xPos, player2.yPos, player2.size, player2.size])
-            message(display, "Start in:", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
-            message(display, "3", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 + 50, var.fontSize)
+            message(display, "Start in:", var.white, var.DISPLAYWIDTH/3, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 6, var.fontSize)
+            message(display, "3", var.white, var.DISPLAYWIDTH/2, var.DISPLAYHEIGHT/2, var.fontSize)
             pygame.display.update()
             time.sleep(1)
             display.fill(var.black)
             pygame.draw.rect(display, player1.color, [player1.xPos, player1.yPos, player1.size, player1.size])
             pygame.draw.rect(display, player2.color, [player2.xPos, player2.yPos, player2.size, player2.size])
-            message(display, "Start in:", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
-            message(display, "2", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 + 50, var.fontSize)
+            message(display, "Start in:", var.white, var.DISPLAYWIDTH/3, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 6, var.fontSize)
+            message(display, "2", var.white, var.DISPLAYWIDTH/2, var.DISPLAYHEIGHT/2, var.fontSize)
             pygame.display.update()
             time.sleep(1)
             display.fill(var.black)
             pygame.draw.rect(display, player1.color, [player1.xPos, player1.yPos, player1.size, player1.size])
             pygame.draw.rect(display, player2.color, [player2.xPos, player2.yPos, player2.size, player2.size])
-            message(display, "Start in:", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
-            message(display, "1", var.white, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 + 50, var.fontSize)
+            message(display, "Start in:", var.white, var.DISPLAYWIDTH/3, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 6, var.fontSize)
+            message(display, "1", var.white, var.DISPLAYWIDTH/2, var.DISPLAYHEIGHT/2, var.fontSize)
             pygame.display.update()
             time.sleep(1)
             var.player2Ready = False
@@ -126,14 +126,14 @@ def checkPlayerPosition(display):
     #checks if player2 hit edge
     if player2.xPos >= var.DISPLAYWIDTH or player2.xPos <= 0 or player2.yPos >= var.DISPLAYHEIGHT or player2.yPos <= 0:
         var.roundOver = True
-        message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+        message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
         pygame.display.update()
         player1.score += 1
         time.sleep(2)
     #checks if player1 hit edge
     if player1.xPos >= var.DISPLAYWIDTH or player1.xPos <= 0 or player1.yPos >= var.DISPLAYHEIGHT or player1.yPos <= 0:
         var.roundOver = True
-        message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+        message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
         pygame.display.update()
         player2.score += 1
         time.sleep(2)
@@ -141,7 +141,7 @@ def checkPlayerPosition(display):
     for x, y in zip(player1.xHistory, player1.yHistory):
         if player2.xPos == x and player2.yPos == y:
             var.roundOver = True
-            message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+            message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
             pygame.display.update()
             player1.score += 1
             time.sleep(2)
@@ -149,7 +149,7 @@ def checkPlayerPosition(display):
     for x, y in zip(player2.xHistory, player2.yHistory):
         if player1.xPos == x and player1.yPos == y:
             var.roundOver = True
-            message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+            message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
             pygame.display.update()
             player2.score += 1
             time.sleep(2)
@@ -158,7 +158,7 @@ def checkPlayerPosition(display):
         if i > 0:
             if player1.xPos == player1.xHistory[i-1] and player1.yPos == player1.yHistory[i-1]:
                 var.roundOver = True
-                message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+                message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
                 pygame.display.update()
                 player2.score += 1
                 time.sleep(2)
@@ -167,7 +167,7 @@ def checkPlayerPosition(display):
         if i > 0:
             if player2.xPos == player2.xHistory[i-1] and player2.yPos == player2.yHistory[i-1]:
                 var.roundOver = True
-                message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2, var.fontSize)
+                message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
                 pygame.display.update()
                 player1.score += 1
                 time.sleep(2)
@@ -181,7 +181,7 @@ def checkRoundState(display):
         player1.reset()
         #updates score
         var.score = str(player1.score) + " vs " + str(player2.score)
-        message(display, var.score, var.white, var.DISPLAYWIDTH*0.375, var.DISPLAYHEIGHT/2, var.fontSize)
+        message(display, var.score, var.white, var.DISPLAYWIDTH*0.375, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
         pygame.display.update()
         time.sleep(2)
         var.roundOver = False
