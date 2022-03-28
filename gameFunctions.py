@@ -1,11 +1,12 @@
+from numpy import var
 import variables
 import players
 import time
 import pygame   
 
-player1 = players.Player1()
-player2 = players.Player2()
 var = variables.Variables()
+player1 = players.Player1(var)
+player2 = players.Player2(var)
 
 #displays a string on display
 def message(display, msg, color, xLoc, yLoc, size):
@@ -273,4 +274,12 @@ def introScreen(display):
                 if pos[0] > var.DISPLAYWIDTH * 0.3125 and pos[0] < var.DISPLAYWIDTH * 0.6425 and pos[1] > var.DISPLAYHEIGHT * 0.75 and pos[1] < var.DISPLAYHEIGHT * 0.84:
                     display.fill(var.black)
                     pygame.display.update()
+                    player1.initXPos = var.DISPLAYWIDTH * 0.0625
+                    player1.initYPos = var.DISPLAYHEIGHT * (1/12)
+                    player1.xPos = player1.initXPos
+                    player1.yPos = player1.initYPos
+                    player2.initXPos = var.DISPLAYWIDTH * 0.9125
+                    player2.initYPos = var.DISPLAYHEIGHT * (53/60)
+                    player2.xPos = player2.initXPos
+                    player2.yPos = player2.initYPos
                     var.introScreen = False

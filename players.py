@@ -1,7 +1,5 @@
 import pygame
-import variables
 #creates green player
-var = variables.Variables()
 class Player1():
     color = None
     size = 10
@@ -17,13 +15,8 @@ class Player1():
     initXPos = None
     initYPos = None
 
-    def __init__(self, color = (0, 255, 0), map = 1):
+    def __init__(self, var, color = (0, 255, 0), map = 1):
         self.color = color
-        if map == var.MAP:
-            self.xPos = var.DISPLAYWIDTH * 0.0625
-            self.yPos = var.DISPLAYHEIGHT * (1/12)
-            self.initXPos = var.DISPLAYWIDTH * 0.0625
-            self.initYPos = var.DISPLAYHEIGHT * (1/12)
 
     def move(self):
         self.xPos += self.xChange
@@ -61,7 +54,7 @@ class Player2():
     initXPos = None
     initYPos = None
 
-    def __init__(self, color = (255, 0, 0), map = 1):
+    def __init__(self, var, color = (255, 0, 0), map = 1):
         self.color = color
         if map == var.MAP:
             self.xPos = var.DISPLAYWIDTH * 0.9125
