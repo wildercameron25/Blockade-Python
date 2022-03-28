@@ -15,7 +15,7 @@ class Player1():
     initXPos = None
     initYPos = None
 
-    def __init__(self, var, color = (0, 255, 0), map = 1):
+    def __init__(self, color = (0, 255, 0), map = 1):
         self.color = color
 
     def move(self):
@@ -54,7 +54,7 @@ class Player2():
     initXPos = None
     initYPos = None
 
-    def __init__(self, var, color = (255, 0, 0), map = 1):
+    def __init__(self, color = (255, 0, 0), map = 1):
         self.color = color
 
     def move(self):
