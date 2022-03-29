@@ -250,11 +250,14 @@ def instructions(display):
     message(display, "First to 10 points Wins :D", (255, 255, 255), 40, 410, 75)
     message(display, "Back", (255, 255, 255), 450, 610, 75)
     pygame.display.update()
+    x = []
+    i = 0
     while True:
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
-                if pos[0] > 450 and pos[1] > 75:
+                #[(453, 650), (454, 614), (568, 611), (572, 651)]
+                if pos[0] > 450 and pos[0] < 568 and pos[1] > 610 and pos[1] < 650:
                     return
             if event.type == pygame.QUIT:
                 sys.exit(0)
