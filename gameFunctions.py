@@ -260,7 +260,7 @@ def instructions(display):
                     return
             if event.type == pygame.QUIT:
                 sys.exit(0)
-#opening page
+#displays opening page
 def opening(display):
     display.fill(var.black)
     message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
