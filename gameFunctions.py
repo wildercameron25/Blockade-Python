@@ -259,7 +259,7 @@ def instructions(display):
             if event.type == pygame.QUIT:
                 sys.exit(0)
 #displays contents of intro screen
-#allows for players to view instructions(WIP), change color(WIP), and change window size
+#allows for players to view instructions, change color(WIP), and change window size
 def introScreen(display):
     display.fill(var.black)
     message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
