@@ -20,6 +20,7 @@ class Variables():
     roundReady = False
     player1Ready = False
     player2Ready = False
+    playAgain = True
     #score
     score = None
 
