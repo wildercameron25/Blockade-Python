@@ -191,8 +191,8 @@ def checkRoundState(display):
         pygame.display.update()
         time.sleep(2)
         display.fill(var.black)
-        if player1.score == 1 or player2.score == 1:
-            if player1.score == 1:
+        if player1.score == 10 or player2.score == 10:
+            if player1.score == 10:
                 message(display, "Player 1 Wins", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
             else:
                 message(display, "Player 2 Wins", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
@@ -247,6 +247,7 @@ def instructions(display):
     message(display, "Player 2 use arrow keys to move", (255, 255, 255), 40, 110, 75)
     message(display, "Cut each other off to score a point", (255, 255, 255), 40, 210, 75)
     message(display, "Don't hit the edge!", (255, 255, 255), 40, 310, 75)
+    message(display, "First to 10 points Wins :D", (255, 255, 255), 40, 410, 75)
     message(display, "Back", (255, 255, 255), 450, 610, 75)
     pygame.display.update()
     while True:
