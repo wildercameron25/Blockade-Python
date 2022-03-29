@@ -256,14 +256,12 @@ def instructions(display):
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
-                #[(453, 650), (454, 614), (568, 611), (572, 651)]
                 if pos[0] > 450 and pos[0] < 568 and pos[1] > 610 and pos[1] < 650:
                     return
             if event.type == pygame.QUIT:
                 sys.exit(0)
-#displays contents of intro screen
-#allows for players to view instructions, change color(WIP), and change window size
-def introScreen(display):
+#opening page
+def opening(display):
     display.fill(var.black)
     message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
     message(display, "Small", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * (7/30), var.fontSize)
@@ -272,6 +270,10 @@ def introScreen(display):
     message(display, "Instructions", (255, 255, 255), var.DISPLAYWIDTH * 0.45, var.DISPLAYHEIGHT * 0.5, var.fontSize)
     message(display, "Confirm", (255, 255, 255), var.DISPLAYWIDTH * 0.3125, var.DISPLAYHEIGHT * 0.75, var.fontSize)
     pygame.display.update()
+#displays contents of intro screen
+#allows for players to view instructions, change color(WIP), and change window size
+def introScreen(display):
+    opening(display)
     while var.introScreen:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -285,14 +287,7 @@ def introScreen(display):
                     var.DISPLAYHEIGHT = 300
                     var.DISPLAYWIDTH = 400
                     display = pygame.display.set_mode((var.DISPLAYWIDTH, var.DISPLAYHEIGHT))
-                    display.fill(var.black)
-                    message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
-                    message(display, "Small", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * (7/30), var.fontSize)
-                    message(display, "Medium", (255, 255, 255), var.DISPLAYWIDTH * 0.5, var.DISPLAYHEIGHT * (7/30), var.fontSize)
-                    message(display, "Large", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * 0.5, var.fontSize)
-                    message(display, "Instructions", (255, 255, 255), var.DISPLAYWIDTH * 0.45, var.DISPLAYHEIGHT * 0.5, var.fontSize)
-                    message(display, "Confirm", (255, 255, 255), var.DISPLAYWIDTH * 0.3125, var.DISPLAYHEIGHT * 0.75, var.fontSize)
-                    pygame.display.update()
+                    opening(display)
                     time.sleep(0.2)
                 #checks if 'Medium' was clicked
                 if pos[0] > var.DISPLAYWIDTH * 0.5 and pos[0] < var.DISPLAYWIDTH * 0.825 and pos[1] > var.DISPLAYHEIGHT * (7/30) and pos[1] < var.DISPLAYHEIGHT * 0.32:
@@ -300,14 +295,7 @@ def introScreen(display):
                     var.DISPLAYHEIGHT = 600
                     var.DISPLAYWIDTH = 800
                     display = pygame.display.set_mode((var.DISPLAYWIDTH, var.DISPLAYHEIGHT))
-                    display.fill(var.black)
-                    message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
-                    message(display, "Small", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * (7/30), var.fontSize)
-                    message(display, "Medium", (255, 255, 255), var.DISPLAYWIDTH * 0.5, var.DISPLAYHEIGHT * (7/30), var.fontSize)
-                    message(display, "Large", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * 0.5, var.fontSize)
-                    message(display, "Instructions", (255, 255, 255), var.DISPLAYWIDTH * 0.45, var.DISPLAYHEIGHT * 0.5, var.fontSize)
-                    message(display, "Confirm", (255, 255, 255), var.DISPLAYWIDTH * 0.3125, var.DISPLAYHEIGHT * 0.75, var.fontSize)
-                    pygame.display.update()
+                    opening(display)
                     time.sleep(0.2)
                 #checks if 'Large' was clicked
                 if pos[0] > var.DISPLAYWIDTH * 0.125 and pos[0] < var.DISPLAYWIDTH * 0.355 and pos[1] > var.DISPLAYHEIGHT * 0.5 and pos[1] < var.DISPLAYHEIGHT * (181/300):
@@ -315,28 +303,14 @@ def introScreen(display):
                     var.DISPLAYHEIGHT = 750
                     var.DISPLAYWIDTH = 1000
                     display = pygame.display.set_mode((var.DISPLAYWIDTH, var.DISPLAYHEIGHT))
-                    display.fill(var.black)
-                    message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
-                    message(display, "Small", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * (7/30), var.fontSize)
-                    message(display, "Medium", (255, 255, 255), var.DISPLAYWIDTH * 0.5, var.DISPLAYHEIGHT * (7/30), var.fontSize)
-                    message(display, "Large", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * 0.5, var.fontSize)
-                    message(display, "Instructions", (255, 255, 255), var.DISPLAYWIDTH * 0.45, var.DISPLAYHEIGHT * 0.5, var.fontSize)
-                    message(display, "Confirm", (255, 255, 255), var.DISPLAYWIDTH * 0.3125, var.DISPLAYHEIGHT * 0.75, var.fontSize)
-                    pygame.display.update()
+                    opening(display)
                     time.sleep(0.2)
                 #checks if 'Instructions' was clicked
                 if pos[0] > var.DISPLAYWIDTH * 0.45 and pos[0] < var.DISPLAYWIDTH * 0.9625 and pos[1] > var.DISPLAYHEIGHT * 0.5 and pos[1] < var.DISPLAYHEIGHT * (44/75):
                     display.fill(var.black)
                     instructions(display)
                     display = pygame.display.set_mode((var.DISPLAYWIDTH, var.DISPLAYHEIGHT))
-                    display.fill(var.black)
-                    message(display, "Select Screen Size", (255, 255, 255), var.DISPLAYWIDTH * 0.1, var.DISPLAYHEIGHT * (1/30), var.fontSize)
-                    message(display, "Small", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * (7/30), var.fontSize)
-                    message(display, "Medium", (255, 255, 255), var.DISPLAYWIDTH * 0.5, var.DISPLAYHEIGHT * (7/30), var.fontSize)
-                    message(display, "Large", (255, 255, 255), var.DISPLAYWIDTH * 0.125, var.DISPLAYHEIGHT * 0.5, var.fontSize)
-                    message(display, "Instructions", (255, 255, 255), var.DISPLAYWIDTH * 0.45, var.DISPLAYHEIGHT * 0.5, var.fontSize)
-                    message(display, "Confirm", (255, 255, 255), var.DISPLAYWIDTH * 0.3125, var.DISPLAYHEIGHT * 0.75, var.fontSize)
-                    pygame.display.update()
+                    opening(display)
                     time.sleep(0.2)
 
                 #checks if 'Confirm' was clicked
