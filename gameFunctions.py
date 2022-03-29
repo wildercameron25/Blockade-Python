@@ -191,8 +191,8 @@ def checkRoundState(display):
         pygame.display.update()
         time.sleep(2)
         display.fill(var.black)
-        if player1.score == 1 or player2.score == 1:
-            if player1.score == 1:
+        if player1.score == 10 or player2.score == 10:
+            if player1.score == 10:
                 message(display, "Player 1 Wins", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
             else:
                 message(display, "Player 2 Wins", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
