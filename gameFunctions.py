@@ -191,8 +191,8 @@ def checkRoundState(display):
         pygame.display.update()
         time.sleep(2)
         display.fill(var.black)
-        if player1.score == 10 or player2.score == 10:
-            if player1.score == 10:
+        if player1.score == 1 or player2.score == 1:
+            if player1.score == 1:
                 message(display, "Player 1 Wins", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
             else:
                 message(display, "Player 2 Wins", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
@@ -211,13 +211,13 @@ def checkRoundState(display):
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         pos = pygame.mouse.get_pos()
                         #yes is clicked
-                        if pos[0] > 100 and pos[0] < 154 and pos[1] > 170 and pos[1] < 195:
+                        if pos[0] > var.DISPLAYWIDTH / 4 and pos[0] < var.DISPLAYWIDTH / (200/77) and pos[1] > var.DISPLAYHEIGHT / (30/17) and pos[1] < var.DISPLAYHEIGHT / (20/13):
                             player1.score = 0
                             player2.score = 0
                             var.introScreen = True
                             var.playAgain = False
                         #no is clicked
-                        if pos[0] > 250 and pos[0] < 294 and pos[1] > 170 and pos[1] < 195:
+                        if pos[0] > var.DISPLAYWIDTH / (8/5) and pos[0] < var.DISPLAYWIDTH / (200/147) and pos[1] > var.DISPLAYHEIGHT / (30/17) and pos[1] < var.DISPLAYHEIGHT / (20/13):
                             var.playAgain = False
                             var.gameDone = True
         var.roundOver = False
