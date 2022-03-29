@@ -1,4 +1,4 @@
 # Blockade-Python
 
 
-<a href="blockade.exe" download>Click Here to Download</a>
+<a href="https://github.com/wildercameron25/Blockade-Python/raw/main/blockade.exe" download>Click Here to Download</a>
