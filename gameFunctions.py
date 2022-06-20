@@ -33,35 +33,43 @@ def waitReadyState(display):
            elif event.type == pygame.KEYDOWN:
                #checks for key input from player2
                 if not var.player2Ready and event.key == pygame.K_LEFT:
+                    player2.movement = "LEFT"
                     player2.xChange = -10
                     player2.yChange = 0
                     var.player2Ready = True
                 elif not var.player2Ready and event.key == pygame.K_RIGHT:
+                    player2.movement = "RIGHT"
                     player2.xChange = 10
                     player2.yChange = 0
                     var.player2Ready = True
                 elif not var.player2Ready and event.key == pygame.K_UP:
+                    player2.movement = "UP"
                     player2.xChange = 0
                     player2.yChange = -10
                     var.player2Ready = True
                 elif not var.player2Ready and event.key == pygame.K_DOWN:
+                    player2.movement = "DOWN"
                     player2.xChange = 0
                     player2.yChange = 10
                     var.player2Ready = True
                 #check for key input from player1
                 if not var.player1Ready and event.key == pygame.K_a:
+                    player1.movement = "LEFT"
                     player1.xChange = -10
                     player1.yChange = 0
                     var.player1Ready = True
                 elif not var.player1Ready and event.key == pygame.K_d:
+                    player1.movement = "RIGHT"
                     player1.xChange = 10
                     player1.yChange = 0
                     var.player1Ready = True
                 elif not var.player1Ready and event.key == pygame.K_w:
+                    player1.movement = "UP"
                     player1.xChange = 0
                     player1.yChange = -10
                     var.player1Ready = True
                 elif not var.player1Ready and event.key == pygame.K_s:
+                    player1.movement = "DOWN"
                     player1.xChange = 0
                     player1.yChange = 10
                     var.player1Ready = True
@@ -99,29 +107,37 @@ def playerInput():
             var.gameDone = True
         if event.type == pygame.KEYDOWN:
             #checks for key input from player2
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT and player2.movement != "RIGHT":
+                player2.movement = "LEFT"
                 player2.xChange = -10
                 player2.yChange = 0
-            elif event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_RIGHT and player2.movement != "LEFT":
+                player2.movement = "RIGHT"
                 player2.xChange = 10
                 player2.yChange = 0
-            elif event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP and player2.movement != "DOWN":
+                player2.movement = "UP"
                 player2.xChange = 0
                 player2.yChange = -10
-            elif event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN and player2.movement != "UP":
+                player2.movement = "DOWN"
                 player2.xChange = 0
                 player2.yChange = 10
             #check for key input from player1
-            if event.key == pygame.K_a:
+            if event.key == pygame.K_a and player1.movement != "RIGHT":
+                player1.movement = "LEFT"
                 player1.xChange = -10
                 player1.yChange = 0
-            elif event.key == pygame.K_d:
+            elif event.key == pygame.K_d and player1.movement != "LEFT":
+                player1.movement = "RIGHT"
                 player1.xChange = 10
                 player1.yChange = 0
-            elif event.key == pygame.K_w:
+            elif event.key == pygame.K_w and player1.movement != "DOWN":
+                player1.movement = "UP"
                 player1.xChange = 0
                 player1.yChange = -10
-            elif event.key == pygame.K_s:
+            elif event.key == pygame.K_s and player1.movement != "UP":
+                player1.movement = "DOWN"
                 player1.xChange = 0
                 player1.yChange = 10
 #checks if either player is out of bounds or if either player hit a trail

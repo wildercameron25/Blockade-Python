@@ -10,6 +10,7 @@ class Player1():
     trailLength = 0
     xChange = 0
     yChange = 0
+    movement = None
     score = 0
 
     initXPos = None
@@ -37,6 +38,7 @@ class Player1():
         self.trailLength = 0
         self.xHistory = []
         self.yHistory = []
+        self.movement = None
 
 #creates red player
 class Player2():
@@ -49,6 +51,7 @@ class Player2():
     trailLength = 0
     xChange = 0
     yChange = 0
+    movement = None
     score = 0
 
     initXPos = None
@@ -76,3 +79,4 @@ class Player2():
         self.trailLength = 0
         self.xHistory = []
         self.yHistory = []
+        self.movement = None
