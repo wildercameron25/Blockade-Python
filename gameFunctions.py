@@ -1,4 +1,3 @@
-from numpy import var
 import variables
 import players
 import time
