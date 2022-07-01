@@ -161,7 +161,7 @@ def checkPlayerPosition(display):
         return
     #checks if player2 hit player1 trail
     for x, y in zip(player1.xHistory, player1.yHistory):
-        if x <= player2.xPos <= x+10  and y <= player2.yPos <= y+10:
+        if x <= player2.xPos <= x+10  and ((y <= player2.yPos <= y+10) or (y <= player2.yPos+10 <= y+10)):
             var.roundOver = True
             message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
             pygame.display.update()
@@ -170,7 +170,7 @@ def checkPlayerPosition(display):
             return
     #checks if player1 hit player2 trail
     for x, y in zip(player2.xHistory, player2.yHistory):
-        if x <= player1.xPos <= x+10 and y <= player1.yPos <= y+10:
+        if x <= player1.xPos <= x+10 and ((y <= player1.yPos <= y+10) or (y <= player1.yPos+10 <= y+10)):
             var.roundOver = True
             message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
             pygame.display.update()
