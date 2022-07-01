@@ -150,6 +150,7 @@ def checkPlayerPosition(display):
         pygame.display.update()
         player1.score += 1
         time.sleep(2)
+        return
     #checks if player1 hit edge
     if player1.xPos >= var.DISPLAYWIDTH or player1.xPos <= 0 or player1.yPos >= var.DISPLAYHEIGHT or player1.yPos <= 0:
         var.roundOver = True
@@ -157,22 +158,25 @@ def checkPlayerPosition(display):
         pygame.display.update()
         player2.score += 1
         time.sleep(2)
+        return
     #checks if player2 hit player1 trail
     for x, y in zip(player1.xHistory, player1.yHistory):
-        if player2.xPos == x and player2.yPos == y:
+        if x <= player2.xPos <= x+10  and y <= player2.yPos <= y+10:
             var.roundOver = True
             message(display, "Point Player 1", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
             pygame.display.update()
             player1.score += 1
             time.sleep(2)
+            return
     #checks if player1 hit player2 trail
     for x, y in zip(player2.xHistory, player2.yHistory):
-        if player1.xPos == x and player1.yPos == y:
+        if x <= player1.xPos <= x+10 and y <= player1.yPos <= y+10:
             var.roundOver = True
             message(display, "Point Player 2", var.yellow, var.DISPLAYWIDTH/4, var.DISPLAYHEIGHT/2 - var.DISPLAYHEIGHT / 15, var.fontSize)
             pygame.display.update()
             player2.score += 1
             time.sleep(2)
+            return
     #checks if player1 hit own trail
     for i in range(player1.trailLength):
         if i > 0:
@@ -182,6 +186,7 @@ def checkPlayerPosition(display):
                 pygame.display.update()
                 player2.score += 1
                 time.sleep(2)
+                return
     #checks if player2 hit own trail
     for i in range(player2.trailLength):
         if i > 0:
@@ -191,7 +196,7 @@ def checkPlayerPosition(display):
                 pygame.display.update()
                 player1.score += 1
                 time.sleep(2)
-                display.fill(var.black)
+                return
 #checks if a player has lost
 def checkRoundState(display):
     if var.roundOver:
@@ -333,12 +338,12 @@ def introScreen(display):
                     display.fill(var.black)
                     pygame.display.update()
                     #updates player positions in accordance to map size
-                    player1.initXPos = var.DISPLAYWIDTH * 0.0625
-                    player1.initYPos = var.DISPLAYHEIGHT * (1/12)
-                    player1.xPos = player1.initXPos
-                    player1.yPos = player1.initYPos
-                    player2.initXPos = var.DISPLAYWIDTH * 0.9125
-                    player2.initYPos = var.DISPLAYHEIGHT * (53/60)
-                    player2.xPos = player2.initXPos
-                    player2.yPos = player2.initYPos
+                    player1.initXPos = int(var.DISPLAYWIDTH * 0.0625)
+                    player1.initYPos = int(var.DISPLAYHEIGHT * (1/12))
+                    player1.xPos = int(player1.initXPos)
+                    player1.yPos = int(player1.initYPos)
+                    player2.initXPos = int(var.DISPLAYWIDTH * 0.9125)
+                    player2.initYPos = int(var.DISPLAYHEIGHT * (53/60))
+                    player2.xPos = int(player2.initXPos)
+                    player2.yPos = int(player2.initYPos)
                     var.introScreen = False

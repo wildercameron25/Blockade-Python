@@ -6,7 +6,9 @@ import gameFunctions as game
 pygame.init()
 
 #sets up the display
-dis=pygame.display.set_mode((game.var.DISPLAYWIDTH, game.var.DISPLAYHEIGHT))
+dis=pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+game.var.DISPLAYWIDTH = dis.get_width()
+game.var.DISPLAYHEIGHT = dis.get_height()
 #gives display window a title
 pygame.display.set_caption("Blockade By Cameron Wilder")
 
