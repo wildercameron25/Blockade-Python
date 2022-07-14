@@ -3,7 +3,7 @@ import sys
 import pygame
 import gameFunctions as game
 #initializes all pygame modules
-pygame.init()
+pygame.init()s
 
 #sets up the display
 dis=pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
